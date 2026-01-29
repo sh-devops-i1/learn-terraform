@@ -3,9 +3,11 @@ action=$2
 
 if [ -z "${env}" ]; then
     echo -e "\e[31mInput missing Environment\e[0m"
+    exit 1
 fi
 if [ -z "${action}" ]; then
     echo -e "\e[31mInsert apply|destroy\e[0m"
+    exit 1
 fi
 
 rm -rf .terraform/terraform.tfstate
