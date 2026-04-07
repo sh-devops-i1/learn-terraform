@@ -6,6 +6,20 @@ terraform {
     }
   }
 }
-resource "null_resource" "test" {
-  count = 5
+variable "d1" {
+  default = [
+    {
+      "course_name" : "AWS"
+      "trainer_name" : "Shuja"
+    },
+    {
+      "course_name" : "AZURE"
+      "trainer_name" : "MOHD"
+    },
+
+  ]
+}
+
+output "course" {
+  value = var.d1.*.course_name
 }
